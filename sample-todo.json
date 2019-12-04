@@ -1,0 +1,11 @@
+{
+    "todos": [
+        {
+            "id": 0, 
+            "severity": 2,
+            "title": "some todo title",
+            "body": "This is some todo sample body",
+            "done": false
+        }
+    ]
+}
