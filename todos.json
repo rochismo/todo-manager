@@ -1,0 +1,19 @@
+{
+  "lastId": 2,
+  "todos": [
+    {
+      "id": 1,
+      "title": "Test todo",
+      "body": "test todo body",
+      "severity": 0,
+      "completed": false
+    },
+    {
+      "id": 2,
+      "title": "Todo 2",
+      "body": "test todo 2",
+      "severity": 2,
+      "completed": false
+    }
+  ]
+}

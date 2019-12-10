@@ -5,5 +5,6 @@ module.exports = class ArgumentParser {
         this.list = program.list || false;
         this.mark = program.mark ? JSON.parse(program.mark) : null;
         this.change = program.change || null;
+        this.setSeverity = program.setSeverity || null;
     }
 }

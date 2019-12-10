@@ -1,11 +1,9 @@
 const fs = require("fs");
 const path = require("path");
-const Logger = require("./logger");
 const inquirer = require("inquirer");
 const DEFAULT_FILE_NAME = "todos.json"
 const template = require("./template");
-const {createTodo, createFile} = require("./questions.js");
-const severities = require("./../severities")
+const {createTodo, createFile} = require("./questions.js")
 module.exports = class Manager {
     static async create(folder) {
         const { create } = await Manager.check(folder);
@@ -29,24 +27,8 @@ module.exports = class Manager {
         fs.writeFileSync(path.join(folder, DEFAULT_FILE_NAME), JSON.stringify(todos, null, 2));
     }
 
-    static exists(folder) {
-        return fs.existsSync(path.join(folder, DEFAULT_FILE_NAME));
-    }
-
-    static list(folder) {
-        if (!Manager.exists(folder)) {
-            return Logger.log("There are no TODOS's here!", severities.HIGH, true);
-        }
-        const {todos} = require(path.join(folder, DEFAULT_FILE_NAME));
-        todos.forEach(todo => {
-            const done = todo.done ? "Completed" : "Not yet finished";
-            const body = `TODO: ${todo.title} - ${todo.body} - ${done}`;
-            Logger.log(body, todo.severity)
-        })
-    }
-
     static async check(folder) {
-        if (!Manager.exists(folder)) {
+        if (!fs.existsSync(path.join(folder, DEFAULT_FILE_NAME))) {
             return inquirer.prompt(createFile)
         }
         return { create: null }

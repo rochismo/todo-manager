@@ -8,14 +8,11 @@ program
 .option('-l, --list', 'Lists all TODOs on the current folder')
 .option('-m, --mark <boolean>', 'Sets the status of a TODO')
 .option('-c, --change <todo-id | title>', 'Modifies the TODO with the selected id')
+.option('-s, --set-severity <1 | 2 | 3>', 'Change the severity')
+.option('-h, --help', 'Prints all available options')
 .parse(process.argv);
 
 const parser = new ArgumentParser(program);
-
-if (parser.list) {
-    Manager.list(parser.folder);
-}
-
 if (parser.add) {
     Manager.create(parser.folder);
 }
