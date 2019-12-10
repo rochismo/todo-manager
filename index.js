@@ -11,7 +11,7 @@ program
 .parse(process.argv);
 
 const parser = new ArgumentParser(program);
-// Testaa
+
 if (parser.list) {
     Manager.list(parser.folder);
 }
